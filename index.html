@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Study Planner</title>
+  <link rel="stylesheet" href="assest/css/style.css" />
+</head>
+<body>
+    
+    <!-- 📘 Navbar -->
+    <nav class="navbar">
+    <div class="nav-brand">
+        <h2>Smart Study Planner</h2>
+    </div>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#taskInput">Tasks</a></li>
+        <li><a href="#calendar">Calendar</a></li>
+        <li><a href="#pomodoro">Pomodoro</a></li>
+        <li><a href="#flashcards">Flashcards</a></li>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#progress">Progress</a></li>
+        <li><button id="toggleDark">🌙 Dark Mode</button></li>
+    </ul>
+    </nav>
+
+  <div class="container">
+    <!-- Subject-wise Tasks -->
+    <section class="task-input" id="task-input-section">
+      <h2>📖 Add Study Task</h2>
+      <input type="text" id="taskInput" placeholder="Enter your task..." />
+      <input type="date" id="dueDate" />
+      <select id="subjectSelect">
+        <option value="" hidden>Select Subject</option>
+        <option>Math</option>
+        <option>GK/GS</option>
+        <option>Aptitude</option>
+        <option>English</option>
+        <option>Other</option>
+      </select>
+      <button onclick="addTask()">Add Task</button>
+
+      <div class="export-import">
+        <button onclick="exportTasks()">Export Tasks</button>
+        <input type="file" id="importFile" accept=".json" onchange="importTasks(event)" />
+      </div>
+    </section>
+    
+    <!-- Task List -->
+    <section class="task-list" id="task-list-section">
+      <h2>📝 Your Tasks</h2>
+      <ul id="taskList"></ul>
+    </section>
+
+    <!-- Calendar -->
+    <section class="calendar" id="calendar-section">
+      <h2>📅 Calendar View</h2>
+      <div id="calendar"></div>
+    </section>
+
+    <!-- Pomodoro Timer -->
+    <section class="pomodoro" id="pomodoro-section">
+      <h2>⏱️ Pomodoro Timer</h2>
+      <div id="timer">25:00</div>
+      <div class="buttons">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button onclick="resetTimer()">Reset</button>
+      </div>
+      <p id="status">Ready to focus!</p>
+    </section>
+
+    <!-- Flashcards -->
+    <section class="flashcards" id="flashcards-section">
+      <h2>🧠 Flashcards</h2>
+      <input type="text" id="question" placeholder="Question" />
+      <input type="text" id="answer" placeholder="Answer" />
+      <button onclick="addFlashcard()">Add Flashcard</button>
+      <div id="flashcardList"></div>
+    </section>
+
+    <!-- Notes -->
+    <section class="notes" id="notes-section">
+      <div class="notes-section">
+        <h2>📝 Notes</h2>
+        <input type="password" id="notesPassword" placeholder="Enter password to lock/unlock notes" />
+        <button onclick="toggleNotesLock()">Lock/Unlock Notes</button>
+        <textarea id="notes" placeholder="Write your notes here..." disabled></textarea>
+        <button onclick="saveNotes()">Save Notes</button>
+      </div>
+    </section>
+
+    <!-- Progress -->
+    <section class="progress" id="progress-section">
+      <h2>📈 Study Progress</h2>
+      <canvas id="progressChart"></canvas>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Smart Study Planner. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assest/js/script.js"></script>
+</body>
+</html>

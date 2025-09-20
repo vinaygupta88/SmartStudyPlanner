@@ -1,0 +1,379 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: 
+    linear-gradient(rgba(240, 244, 248, 0.1), rgba(240, 244, 248, 0.1)),
+    url('https://www.bing.com/th/id/OIP.Eh9tv_Tz7HCctZP-VrPUEAHaEK?w=265&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  flex-grow: 1;
+}
+/* ------ Navbar Styles ------ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #75ace6;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 999;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-brand small {
+  display: block;
+  font-size: 12px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a,
+.nav-links button {
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: auto;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* Push main container down below navbar */
+.container {
+  margin-top: 80px;
+}
+
+#toggleDark {
+  padding: 7px 15px;
+  background-color: #0056b3;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#toggleDark:hover {
+  background-color: #003d7a;
+}
+
+/* Sections */
+section {
+  margin-bottom: 40px;
+}
+
+/* Task Input Section */
+.task-input input, .task-input select, .notes textarea, .notes-section input[type="password"], #question, #answer {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 15px 0;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.task-input input:focus, .task-input select:focus, .notes textarea:focus, .notes-section input[type="password"]:focus, #question:focus, #answer:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.task-input button,
+.flashcards button,
+.notes button {
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
+
+.task-input button:hover,
+.flashcards button:hover,
+.notes button:hover {
+  background-color: #0056b3;
+}
+
+/* Export Import */
+.export-import {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.export-import button {
+  flex-shrink: 0;
+}
+
+.export-import input[type="file"] {
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+/* Task List */
+.task-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.task-list li {
+  background: #eef4ff;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-left: 5px solid #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.task-list li input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.task-list li > div {
+  flex-grow: 1;
+  min-width: 200px;
+}
+
+.task-list button {
+  background: crimson;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.task-list button:hover {
+  background-color: #a50000;
+}
+
+.completed-task {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+/* Calendar */
+#calendar {
+  background: #f9f9f9;
+  padding: 20px;
+  border: 2px dashed #aaa;
+  border-radius: 8px;
+  text-align: center;
+  min-height: 120px;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Pomodoro Timer */
+.pomodoro {
+  text-align: center;
+  padding: 25px 15px;
+  border: 2px dashed #007bff;
+  border-radius: 10px;
+  background-color: #f9fcff;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#timer {
+  font-size: 4rem;
+  margin: 20px 0;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.pomodoro .buttons button {
+  margin: 8px 10px;
+  padding: 12px 20px;
+  background: #28a745;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.pomodoro .buttons button:hover {
+  background-color: #1e7e34;
+}
+
+#status {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 12px;
+}
+
+/* Flashcards */
+#flashcardList {
+  margin-top: 20px;
+}
+
+.flashcard {
+  background: #f0f8ff;
+  padding: 18px 20px;
+  margin-bottom: 15px;
+  border-left: 5px solid #00bcd4;
+  border-radius: 6px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Notes */
+.notes-section {
+  margin-top: 20px;
+}
+
+.notes-section input[type="password"] {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.notes-section textarea {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  resize: vertical;
+}
+
+.notes-section textarea:disabled {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+/* Progress Chart */
+canvas {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #36383a;
+  color: white;
+  text-align: center;
+  padding: 20px 15px;
+  margin-top: 30px;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #7d7c7c;
+  color: #f0f0f0;
+}
+
+body.dark-mode .container {
+  background-color: #3d3c3c;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #333;
+  color: white;
+  border: 1px solid #666;
+}
+
+body.dark-mode button {
+  background-color: #444;
+  color: white;
+}
+
+body.dark-mode .task-list li {
+  background: #2a2a2a;
+  border-color: #666;
+}
+
+body.dark-mode #calendar {
+  background: #222;
+  border-color: #666;
+}
